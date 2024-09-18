@@ -4,14 +4,15 @@ import { PassportStrategy } from "@nestjs/passport";
 import { ExtractJwt, Strategy } from "passport-jwt";
 import { User } from "src/user/Entity/user.entity";
 import { UserService } from "src/user/user.service";
-
+import * as dotenv from 'dotenv'
+dotenv.config()
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     constructor(private userService: UserService){
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
-            secretOrKey: process.env.JWTSECRET,
+            secretOrKey: 'nwagood247',
         });
     }
 

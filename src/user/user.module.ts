@@ -16,7 +16,7 @@ dotenv.config()
   imports: [TypeOrmModule.forFeature([User]),
   JwtModule.register({
     global: true,
-    secret: process.env.JWTSECRET,
+    secret: 'nwagood247',
     signOptions: { expiresIn: '1h' },
   }),
   PassportModule.register({
